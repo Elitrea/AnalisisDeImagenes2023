@@ -120,7 +120,8 @@ public class InterfazConvolucion extends JFrame {
             int result = fileChooser.showOpenDialog(this);
             if (result == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChooser.getSelectedFile();
-                imagenOriginal = ImageIO.read(selectedFile);
+                imagenOriginal = herramientas.HerramientasImagen.toBufferedImage(OperacionesBasicas.escalaDeGrises(ImageIO.read(selectedFile)));
+                //imagenOriginal = ImageIO.read(selectedFile);
 
                 // Actualizar la instancia de Convolucion5x5 con la nueva imagen
                 convolucionador = new Convolucion5x5(imagenOriginal);

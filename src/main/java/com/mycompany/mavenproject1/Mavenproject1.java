@@ -272,13 +272,40 @@ public class Mavenproject1 {
 //                                        1,0,1}, 6);
 //JFrameImg frame = new JFrameImg(nueva);
 
-Image original = HerramientasImagen.abrirImagen();
-Image ruido = Ruido.agregarRuidoMezclado(original, 1,1);
-Convolucion c = new Convolucion(herramientas.HerramientasImagen.toBufferedImage(ruido));
-Image nueva = c.convolucionar(new int[]{1,1,1,
+Image original = OperacionesBasicas.escalaDeGrises(HerramientasImagen.abrirImagen());
+Image ruidoA = Ruido.agregarRuidoAditivo(original, 0.5);
+Convolucion cA = new Convolucion(herramientas.HerramientasImagen.
+        toBufferedImage(ruidoA));
+Image nuevaA = cA.convolucionar(new int[]{1,1,1,
                                         1,0,1,
                                         1,1,1}, 8);
-JFrameImg frame = new JFrameImg(ruido);
-JFrameImg frame2 = new JFrameImg(nueva);
+JFrameImg frame1 = new JFrameImg(ruidoA);
+JFrameImg frame2 = new JFrameImg(nuevaA);
+
+Image ruidoS = Ruido.agregarRuidoSustractivo(original,2);
+Convolucion cS = new Convolucion(herramientas.HerramientasImagen.
+        toBufferedImage(ruidoS));
+Image nuevaS = cS.convolucionar(new int[]{1,1,1,
+                                        1,0,1,
+                                        1,1,1}, 8);
+JFrameImg frame11 = new JFrameImg(ruidoS);
+JFrameImg frame21 = new JFrameImg(nuevaS);
+
+Image ruidoM = Ruido.agregarRuidoMezclado(original, 2,5);
+Convolucion cM = new Convolucion(herramientas.HerramientasImagen.
+        toBufferedImage(ruidoM));
+Image nuevaM = cM.convolucionar(new int[]{1,1,1,
+                                        1,0,1,
+                                        1,1,1}, 8);
+JFrameImg frame12 = new JFrameImg(ruidoM);
+JFrameImg frame22 = new JFrameImg(nuevaM);
+
+//Image imagenO = HerramientasImagen.abrirImagen();
+//Convolucion c = new Convolucion(herramientas.HerramientasImagen.toBufferedImage(imagenO));
+//Image nueva = c.convolucionar(new int[]{1,0,1,
+//                                        2,0,2,
+//                                        1,0,1}, 6);
+//JFrameImg frame = new JFrameImg(nueva);
+
     }
 }
