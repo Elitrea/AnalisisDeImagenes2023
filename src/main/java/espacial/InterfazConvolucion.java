@@ -57,10 +57,12 @@ public class InterfazConvolucion extends JFrame {
 
         divTextField = new JTextField();
         divTextField.setPreferredSize(new Dimension(50, divTextField.getPreferredSize().height));
+        divTextField.setText("1");
 
         offsetTextField = new JTextField();
         offsetTextField.setPreferredSize(new Dimension(50, offsetTextField.getPreferredSize().height));
-
+        offsetTextField.setText("0");
+        
         JButton botonConvolucion = new JButton("Realizar Convolución");
         botonConvolucion.addActionListener(new ActionListener() {
             @Override
